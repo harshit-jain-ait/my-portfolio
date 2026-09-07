@@ -4,14 +4,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Harshit Jain | Developer Portfolio</title>
+    <meta name="description" content="Portfolio of Harshit Jain - Web Developer & Designer">
+    <meta name="theme-color" content="#000000">
+
+    <!-- Open Graph / Social Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Harshit Jain | Developer Portfolio">
+    <meta property="og:description" content="Portfolio of Harshit Jain - Web Developer & Designer">
+    <meta property="og:image" content="./image.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./logo.png">
+
+    <!-- Remix Icon CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!-- Stylesheet -->
     <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
     <main>
         <nav>
-            <h1><img src="./logo.png" alt=""></h1>
+            <h1><a href="#"><img src="./logo.png" alt="Harshit Jain Logo"></a></h1>
             <div class="links">
                 <p><a href="#home">Home</a></p>
                 <p><a href="#project">Project</a></p>
@@ -21,8 +37,8 @@
             </div>
         </nav>
 
-        <div class="main">
-            <img src="./image.png" alt="" class="img-self">
+        <div class="main" id="home">
+            <img src="./image.png" alt="Harshit Jain" class="img-self">
             <div class="midd">
                 <p id="iam">I Am</p>
                 <h1>Harshit Jain</h1>
@@ -31,9 +47,18 @@
         </div>
 
         <div class="social-icons">
-            <a href="https://facebook.com" target="_blank"><i class="ri-facebook-fill">Facebook</i></a>
-            <a href="https://instagram.com" target="_blank"><i class="ri-instagram-line">Instagram</i></a>
-            <a href="https://x.com" target="_blank"><i class="ri-twitter-x-line">X</i></a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                <i class="ri-facebook-fill"></i>
+                <span>Facebook</span>
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <i class="ri-instagram-line"></i>
+                <span>Instagram</span>
+            </a>
+            <a href="https://x.com" target="_blank" rel="noopener noreferrer" aria-label="X">
+                <i class="ri-twitter-x-line"></i>
+                <span>X</span>
+            </a>
         </div>
 
         <div class="scroll">

@@ -4,75 +4,95 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 html,
 body {
   width: 100%;
-  height: 100%;
+  min-height: 100%;
+  background-color: #000000;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  overflow-x: hidden;
 }
 
 main {
   width: 100%;
-  height: 100%;
-  background-color: black;
+  min-height: 100vh;
+  background-color: #000000;
   padding-top: 10px;
   padding-left: 30px;
   padding-right: 30px;
+  position: relative;
+  overflow: hidden;
 }
 
 .img-self {
   position: absolute;
-  top: 10%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
-  object-fit: cover;
+  object-fit: contain;
+  max-height: 80vh;
   height: 600px;
   opacity: 0.5;
+  pointer-events: none;
+  user-select: none;
 }
 
 nav {
-  /* width: 100%;
-  height: 100%; */
   display: flex;
   justify-content: space-between;
   align-items: center;
   color: white;
-  margin-bottom: 200px;
-
+  margin-bottom: 80px;
+  position: relative;
+  z-index: 20;
 }
 
-nav div {
+nav .links {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 50px;
+  gap: 40px;
   cursor: pointer;
   z-index: 10;
+  flex-wrap: wrap;
 }
 
 nav a {
   text-decoration: none;
-  color: white;
-  transition: color 0.3 ease, transform 0.2 ease;
+  color: #ffffff;
+  transition: color 0.3s ease, transform 0.2s ease;
+  display: inline-block;
 }
 
-nav p:hover {
-  color: #ffffff;
-  transform: translateY(10px);
+nav .links p {
+  transition: transform 0.2s ease;
+}
+
+nav .links p:hover {
+  transform: translateY(-2px);
   cursor: pointer;
+}
+
+nav .links a:hover {
+  color: #a1a1aa;
 }
 
 nav h1 img {
-  height: 150px;
-  width: 150px;
-
+  height: 100px;
+  width: auto;
   cursor: pointer;
+  display: block;
 }
 
 .main {
   position: relative;
   width: 100%;
+  min-height: 50vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -82,62 +102,74 @@ nav h1 img {
 .midd {
   position: relative;
   z-index: 2;
+  text-align: left;
 }
 
 .midd p {
-  color: gray;
+  color: #a1a1aa;
   font-size: 18px;
+  letter-spacing: 1px;
 }
 
 .midd h1 {
-  margin-top: -1px;
-  color: white;
-  font-size: 100px;
-  line-height: 0.9;
-}
-
-#adeveloper {
-  padding-left: 410px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  color: #ffffff;
+  font-size: clamp(3rem, 7vw, 100px);
+  line-height: 0.95;
+  font-weight: 800;
+  white-space: nowrap;
 }
 
 #iam {
   padding-left: 50px;
 }
 
+#adeveloper {
+  text-align: right;
+  padding-right: 20px;
+}
+
 .social-icons {
   position: fixed;
-  bottom: 50px;
+  bottom: 40px;
+  left: 30px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  z-index: 10;
+  gap: 16px;
+  z-index: 20;
 }
 
 .social-icons a {
   text-decoration: none;
-  color: white;
-  font-size: 20px;
-  font-weight: 700;
-  transition: color 0.3 ease, transform 0.2 ease;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  transition: color 0.3s ease, transform 0.2s ease;
   display: flex;
   align-items: center;
+  gap: 10px;
   cursor: pointer;
 }
 
+.social-icons a i {
+  font-size: 20px;
+}
+
 .social-icons a:hover {
-  color: #ffffff;
-  transform: translateX(10px);
+  color: #93c5fd;
+  transform: translateX(6px);
 }
 
 .scroll {
   position: fixed;
-  right: 50px;
-  bottom: 50px;
+  right: 40px;
+  bottom: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 15px;
-  z-index: 10;
+  gap: 12px;
+  z-index: 20;
 }
 
 .scroll p {
@@ -146,6 +178,7 @@ nav h1 img {
   font-weight: 500;
   letter-spacing: 4px;
   writing-mode: vertical-rl;
+  transition: color 0.3s ease;
 }
 
 .scroll .line {
@@ -153,14 +186,64 @@ nav h1 img {
   height: 45px;
   background-color: #888888;
   border-radius: 2px;
+  transition: background-color 0.3s ease, height 0.3s ease;
 }
 
 .scroll:hover p {
   color: #ffffff;
-  transition: color 0.3s ease;
 }
 
 .scroll:hover .line {
   background-color: #ffffff;
-  transition: background-color 0.3s ease;
+  height: 55px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  main {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  nav {
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+
+  nav .links {
+    gap: 20px;
+    justify-content: center;
+  }
+
+  .midd h1 {
+    font-size: clamp(2.5rem, 8vw, 60px);
+    text-align: center;
+  }
+
+  #iam {
+    padding-left: 0;
+    text-align: center;
+  }
+
+  #adeveloper {
+    padding-right: 0;
+    text-align: center;
+  }
+
+  .img-self {
+    height: 400px;
+  }
+
+  .social-icons {
+    position: static;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 60px;
+    margin-bottom: 30px;
+  }
+
+  .scroll {
+    display: none;
+  }
 }
